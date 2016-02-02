@@ -10,6 +10,45 @@ super-tiny library is to ease testing of side-effect based code.
 
     $ npm i run-io
 
+## API
+
+### lift(fn, [opts])
+
+Turns `fn` into a `yield`able function. `opts` is optional and can have the following keys:
+
+  * `sync` - Handles this function synchronously
+
+### liftMethod(object, method, [opts])
+
+Turns a object method into a `yield`able function. `opts` is the same as in `lift()`.
+
+*Example*
+
+```js
+liftMethod(Model, 'find');
+```
+
+### run(generatorFunction, done)
+
+Generates a function, which can be called with arguments that get passed to the `generatorFunction`.
+If called this function executes the effects, `yield`ed by the generator function.
+
+*Example*
+
+```js
+function *gen(req, res) {
+  const send = liftMethod(res, 'send', { sync: true });
+  yield send({ ok: true });
+}
+
+function done(err) {
+  if (err) throw err;
+  console.log('done');
+}
+
+http.createServer(run(gen, done));
+```
+
 ## Usage
 
 ```js
