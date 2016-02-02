@@ -1,5 +1,8 @@
 # run-io
 
+[![Build Status](https://travis-ci.org/domachine/run-io.svg?branch=master)](https://travis-ci.org/domachine/run-io)
+[![Coverage Status](https://coveralls.io/repos/github/domachine/run-io/badge.svg?branch=master)](https://coveralls.io/github/domachine/run-io?branch=master)
+
 A monadic abstraction to encapsulate functions with side-effects.  The single target of this
 super-tiny library is to ease testing of side-effect based code.
 
