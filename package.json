@@ -1,6 +1,6 @@
 {
   "name": "run-io",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A monadic abstraction to encapsulate functions with side-effects",
   "main": "index.js",
   "scripts": {
