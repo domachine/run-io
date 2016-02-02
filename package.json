@@ -1,0 +1,27 @@
+{
+  "name": "run-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domachine/run-io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domachine/run-io/issues"
+  },
+  "homepage": "https://github.com/domachine/run-io#readme",
+  "devDependencies": {
+    "eslint": "1.10.3",
+    "eslint-config-airbnb": "4.0.0",
+    "eslint-plugin-react": "3.16.1",
+    "sinon": "1.17.3",
+    "tap": "5.4.2"
+  }
+}
