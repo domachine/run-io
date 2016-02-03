@@ -34,7 +34,7 @@ function runIO(it, param, done) {
     return done(e);
   }
 
-  if (value.done) return done(value.value);
+  if (value.done) return done(null, value.value);
   runEffect(value.value, next);
 
   function next(err, res) {

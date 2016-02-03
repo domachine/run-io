@@ -66,7 +66,7 @@ tap.test('test failure example', (t) => {
 // Run
 
 tap.test('run() with success example', (t) => {
-  t.plan(5);
+  t.plan(6);
   const arg = {};
   const async1 = sinon.stub().callsArgWith(2, null, 'test string');
   const async2 = sinon.stub().callsArgWith(1, null, 'test string 2');
@@ -80,12 +80,14 @@ tap.test('run() with success example', (t) => {
     t.equal(a, 'test string');
     t.equal(b, 'test string 2');
     t.equal(c, 42);
+    return 10;
   }
 
   io.run(it, next)(arg);
 
-  function next(err) {
+  function next(err, value) {
     t.equal(err == null, true);
+    t.equal(value, 10);
     t.end();
   }
 });
