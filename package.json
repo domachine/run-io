@@ -6,6 +6,11 @@
   "scripts": {
     "test": "tap test.js"
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/domachine/run-io.git"
