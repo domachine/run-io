@@ -157,10 +157,20 @@ tap.test('sync liftMethod()', (t) => {
   t.end();
 });
 
-// run(heavyIO, end)(req, res);
-//
-// function end(err) {
-//   if (err) {
-//     console.log('Something went wrong', err.stack);
-//   }
-// }
+tap.test('run uses last argument as callback', (t) => {
+  t.plan(2);
+  const args = [42, { _o: 1 }];
+  const returnV = 5;
+  const next = sinon.spy(end);
+  io.run(gen)(args[0], args[1], next);
+
+  function *gen() {
+    t.deepEqual([].slice.call(arguments, 0, 2), args);
+    return returnV;
+  }
+
+  function end() {
+    t.deepEqual(next.args[0], [null, returnV]);
+    t.end();
+  }
+});

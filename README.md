@@ -28,10 +28,13 @@ Turns a object method into a `yield`able function. `opts` is the same as in `lif
 liftMethod(Model, 'find');
 ```
 
-### run(generatorFunction, done)
+### run(generatorFunction, [done])
 
 Generates a function, which can be called with arguments that get passed to the `generatorFunction`.
 If called this function executes the effects, `yield`ed by the generator function.
+
+If you omit the `done` parameter, `run` will assume that you pass the callback as the last parameter
+to the result function.
 
 *Example*
 

@@ -19,7 +19,10 @@ function lift(fn, opts) {
 
 function run(it, done) {
   return function() {
-    runIO(it.apply(this, arguments), {}, done);
+    runIO(
+      it.apply(this, arguments), {},
+      done || Array.prototype.slice.call(arguments, -1)[0]
+    );
   };
 }
 
